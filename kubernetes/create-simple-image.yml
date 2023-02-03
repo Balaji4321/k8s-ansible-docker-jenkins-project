@@ -13,6 +13,7 @@
 
   - name: push image on to dockerhub
     command: docker push <dockerhubname>/simple-image
+    
 
   - name: remove docker images form ansible server
     command: docker rmi tomcat simple-image:latest <dockerhubname./simple-image
