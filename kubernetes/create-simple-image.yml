@@ -1,0 +1,20 @@
+---
+- hosts: ansible-server
+  become: true
+
+  tasks:
+  - name: create docker image using war file
+    command: docker build -t simple-image:latest .
+    args:
+      chdir: /opt/kubernetes
+
+  - name: create tag to image
+    command: docker tag simple-image <dockerhubname>/simple-image
+
+  - name: push image on to dockerhub
+    command: docker push <dockerhubname>/simple-image
+
+  - name: remove docker images form ansible server
+    command: docker rmi tomcat simple-image:latest <dockerhubname./simple-image
+    ignore_errors: yes
+
