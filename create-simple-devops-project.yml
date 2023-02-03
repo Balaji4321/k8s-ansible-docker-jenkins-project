@@ -21,3 +21,4 @@
 
     - name: creating docker container using simple-image
       command: docker run -d --name simple-devops-container -p 8080:8080 <dockerhubname/simple-image:latest
+      
